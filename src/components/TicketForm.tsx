@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-export default function TicketForm() {
+export default function TicketForm({dispatch}:any) {
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -29,9 +29,16 @@ export default function TicketForm() {
             description,
             priority,
         }
+
+        dispatch({
+            type: "ADD_TICKET",
+            payload: ticketData,
+        })
+    
         clearForm();
     }
 
+    
     
 
     return (
